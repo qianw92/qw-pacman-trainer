@@ -86,7 +86,7 @@ Each notebook GIF shows at most the first 20 seconds of a game, sped up 4×. The
 
 ![Best trained agent](results/demos/final_best.gif)
 
-**Supplementary: complete games, start to game over.** The notebook only records the first 20 seconds, so I replayed the saved checkpoints on an Apple Silicon Mac (CPU) with the identical evaluation settings and recorded the whole game. They reproduce the official scores exactly (350 in 560 moves, 400 in 518 moves): [untrained, full game](results/demos/full_game/untrained_full_game.gif) · [best trained, full game](results/demos/full_game/trained_full_game.gif).
+**Supplementary: complete games, start to game over.** The notebook only records the first 20 seconds, so I replayed the saved checkpoints locally with the identical evaluation settings and recorded the whole game. They reproduce the official scores exactly (350 in 560 moves, 400 in 518 moves): [untrained, full game](results/demos/full_game/untrained_full_game.gif) · [best trained, full game](results/demos/full_game/trained_full_game.gif).
 
 ## 7. Training dashboard
 
@@ -106,6 +106,8 @@ Each notebook GIF shows at most the first 20 seconds of a game, sped up 4×. The
 ## 9. One limitation and my next experiment
 
 **One limitation I observed:** the trained agent sometimes stops in a corner and stays there. It has learned to chase nearby dots, but not what to do once the easy dots around it are gone, and with only nine joystick moves and no sense of the maze layout it has no plan for crossing the board. This idling wastes the time limit and is part of why its test scores are lower, despite better practice scores.
+
+A single lucky baseline game (800 points on seed 404) moves the average by a lot, so this comparison cannot firmly separate "the agent got worse" from "the baseline got lucky."
 
 **My next experiment:** change only **episodes**, from **100 to 300**, keeping exploration at 0.20 and the learning rate at 0.0001. The training curve was still rising at game 100, and the tracked test game improved steadily throughout (110 → 390), so the run looks under-trained rather than mis-tuned. The whole run took 4.4 minutes, so 300 games easily fits in one Colab session. If the corner-stopping persists after 300 games, the setting I would change after that is exploration, lowering it to 0.10 so more of the practice is spent using what it has learned.
 
