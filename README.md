@@ -124,4 +124,4 @@ A second limitation worth naming: the test is only five games. A single lucky ba
 - Progress demo scores: [results/demo_scores.json](results/demo_scores.json)
 - Training dashboard: [results/training_dashboard.png](results/training_dashboard.png)
 - Gameplay GIFs: [results/demos/](results/demos)
-- Model checkpoints (untrained, games 25/50/75/100, final) and the complete results ZIP: [TODO: GitHub Release link]. They are about 39 MB in total, so they are attached to a release rather than committed to the repository.
+- Model checkpoints (untrained, games 25/50/75/100, final) and the complete results ZIP: [Release v1](https://github.com/qianw92/qw-pacman-trainer/releases/tag/v1). They are about 76 MB in total, so they are attached to a release rather than committed to the repository.
