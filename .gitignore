@@ -1,0 +1,8 @@
+# Large files are attached to the GitHub Release instead
+*.pt
+*.zip
+checkpoints/
+
+# Local tooling
+.claude/
+.DS_Store
