@@ -115,7 +115,7 @@ A second limitation worth naming: the test is only five games. A single lucky ba
 
 ## 10. Files and evidence
 
-- Executed notebook, final run with all outputs: [pacman_dqn.ipynb](pacman_dqn.ipynb)
+- Executed notebook, final run with all outputs: [pacman_dqn.ipynb](pacman_dqn.ipynb). Note: GitHub's notebook viewer prints the gameplay recordings as `<IPython.core.display.Image object>` rather than playing them, which is a viewer limitation, not a missing output. The same GIFs are embedded in section 6 above and stored in [results/demos/](results/demos). All scores, the episode-by-episode log and the dashboard plot display normally in the notebook.
 - Settings, hardware and package versions: [results/config.json](results/config.json)
 - Per-game training log: [results/training.csv](results/training.csv)
 - Training summary: [results/training_summary.json](results/training_summary.json)
