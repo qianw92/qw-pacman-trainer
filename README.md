@@ -6,7 +6,7 @@ An agent learns to play Atari Ms. Pac-Man by trial and error, using the ready-ma
 
 ## 1. How to open and run the notebook
 
-1. Open [pacman_dqn.ipynb](pacman_dqn.ipynb) in Google Colab (**File → Upload notebook**, or use the [starter version](https://colab.research.google.com/github/pepealonso95/pacman-dqn/blob/main/pacman_dqn.ipynb)).
+1. Open my notebook straight from this repository: [Open in Colab](https://colab.research.google.com/github/qianw92/qw-pacman-trainer/blob/main/pacman_dqn.ipynb) (or download [pacman_dqn.ipynb](pacman_dqn.ipynb) and use **File → Upload notebook**). Locally, Jupyter or VS Code with a Python 3.11–3.13 kernel also works.
 2. Choose **Runtime → Change runtime type → T4 GPU** and save.
 3. In section 1, set `EXPLORATION = 0.20`, `EPISODES = 100`, `LEARNING_RATE = 0.0001`. Change nothing else.
 4. Choose **Runtime → Run all**. Setup, the before-training test, training, the after-training test, and the results ZIP all run in order.
@@ -66,6 +66,8 @@ Both tests use the **untrained network** as the baseline (not a random player) w
 
 Full results: [results/comparison.json](results/comparison.json) · baseline only: [results/baseline.json](results/baseline.json)
 
+**Leaderboard number: 358.0**, the mean score across the five trained evaluation games, produced with the notebook's unchanged evaluation settings (seeds 101/202/303/404/505, 5% exploration, 3,000-move limit).
+
 Five games is a small sample, so neither number is a reliable estimate of true skill. The honest summary is that this training run did not improve test performance.
 
 ## 6. Gameplay
@@ -100,7 +102,7 @@ Each notebook GIF shows at most the first 20 seconds of a game, sped up 4×. The
 
 - **What it observes:** the last **four game screens**, shrunk to small black-and-white images. Four in a row let it tell which way Ms. Pac-Man and the ghosts are moving.
 - **What it can do (actions):** pick one **joystick move** per turn, from nine options: stay still, the four straight directions, and the four diagonals.
-- **What it is rewarded for:** **game points**, for dots, power pellets, fruit and ghosts. During learning each reward is simplified to +1, but every score reported here is the real game score.
+- **What it is rewarded for:** **game points**, for dots, power pellets, fruit and ghosts. During learning each reward is clipped to between −1 and +1 so that no single event dominates, but every score reported here is the real game score.
 - **How it learns:** it starts by moving randomly to gather experience, then mostly picks the move it predicts will lead to the most points, still choosing randomly 20% of the time. It repeatedly replays past moments from memory and nudges its predictions toward what actually happened.
 
 ## 9. One limitation and my next experiment
